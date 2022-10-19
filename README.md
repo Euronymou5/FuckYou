@@ -14,6 +14,7 @@ cd FuckYou
 ```
 ```
 # Linux:
+
 sudo bash install.sh
 
 # Termux:
