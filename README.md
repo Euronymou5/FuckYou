@@ -24,7 +24,7 @@ bash install.sh
 ```
 --------
 
-## Comando Para Inciar La Herramienta:
+## Comando Para Iniciar La Herramienta:
 ```
 python3 fuckyou.py
 ```
