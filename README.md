@@ -24,6 +24,11 @@ bash install.sh
 ```
 --------
 
+## Comando Para Inciar La Herramienta:
+```
+python3 fuckyou.py
+```
+
 # Instalación En Windows
 
 **Primero que todo, debemos estar en el apartado principal del repositorio para despues ubicarnos en el boton Code, lo presionaremos y elegiremos la opción "Download ZIP"**
