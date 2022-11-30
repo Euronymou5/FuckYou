@@ -34,10 +34,18 @@ bash install.sh
 
 ![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/Extraer.PNG)
 
-**Estando dentro de la carpeta extraida, lo unico que haremos sera copiar la ruta en la que esta se encuentra para despues abrir un Símbolo del Sistema (CMD) y ejecutar el siguiente comando:
-"cd (ruta de la carpeta)" y despues colocaremos el siguiente comando: "python -m pip install -r requirements.txt"**
+**Estando dentro de la carpeta extraida, lo unico que haremos sera copiar la ruta en la que esta se encuentra para despues abrir un Símbolo del Sistema (CMD) y ejecutar el siguiente comando:**
+```
+cd (ruta de la carpeta)
+```
+**y despues colocaremos el siguiente comando:** 
+```
+python -m pip install -r requirements.txt
+```
 
-![image.png](
+![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/requirements.PNG)
+
+**Hecho esto, solo nos queda abrir el archivo fuckyou.py**
 
 ![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/fuckyoupy.PNG)
 
