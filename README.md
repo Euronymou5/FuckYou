@@ -87,4 +87,4 @@ python -m pip install -r requirements.txt
 
 # LICENCIA
 
-**MPL-2.0 license(https://github.com/Euronymou5/FuckYou/blob/main/LICENSE)
+**[MPL-2.0 license](https://github.com/Euronymou5/FuckYou/blob/main/LICENSE)**
