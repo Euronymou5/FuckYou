@@ -49,7 +49,15 @@ python3 fuckyou.py
 
 **Cuando termine su instalacion, ejecutaremos su instalador y nos aparecera lo siguiente:**
 
-<img src="https://media.discordapp.net/attachments/995599976463859713/1071720603045867531/image.png?width=271&height=212">
+<img src="https://media.discordapp.net/attachments/995599976463859713/1071723284271480863/image.png?width=443&height=350">
+
+**Pulsaremos en Next hasta llegar a la siguiente ventana:**
+
+<img src="https://media.discordapp.net/attachments/995599976463859713/1071723648848777236/image.png?width=443&height=348">
+
+**Aqui nos aseguraremos que este marcada la casilla con el nombre "Git from the command line and also from 3rd-party software" y despues seguiremos pulsando next hasta que nos aparezca el boton install**
+
+*Tutorial de como instalar git: https://www.youtube.com/watch?v=cYLapo1FFmA*
 
 **Estando dentro de la carpeta extraida, lo unico que haremos sera copiar la ruta en la que esta se encuentra para despues abrir un Símbolo del Sistema (CMD) y ejecutar el siguiente comando:**
 ```
