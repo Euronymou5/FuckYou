@@ -39,6 +39,18 @@ python3 fuckyou.py
 
 ![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/Extraer.PNG)
 
+**Despues descargaremos GIT para windows desde:**
+
+*https://git-scm.com/download/win*
+
+**Elegiremos las versiones dependiendo de cuantos bits sea su pc:**
+
+<img src="https://media.discordapp.net/attachments/995599976463859713/1071719855994183761/image.png?width=191&height=69">
+
+**Cuando termine su instalacion, ejecutaremos su instalador y nos aparecera lo siguiente:**
+
+<img src="https://media.discordapp.net/attachments/995599976463859713/1071720603045867531/image.png?width=271&height=212">
+
 **Estando dentro de la carpeta extraida, lo unico que haremos sera copiar la ruta en la que esta se encuentra para despues abrir un Símbolo del Sistema (CMD) y ejecutar el siguiente comando:**
 ```
 cd (ruta de la carpeta)
