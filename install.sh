@@ -25,7 +25,7 @@ function install() {
    rm -rf get-pip.py
    fi
    
-   echo -e "\033[32m\n[~] Instalando requisitos..."
+   echo -e "\033[32m\n[~] Instalando requerimientos..."
    pip3 install -r requirements.txt
    
    echo -e "\n\033[32m[✔] Instalacion completada."
