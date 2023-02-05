@@ -83,3 +83,8 @@ python -m pip install -r requirements.txt
 
 # Y LISTO, ESO SERIA TODO!
 ![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/cmd.PNG)
+
+
+# LICENCIA
+
+**MPL-2.0 license(https://github.com/Euronymou5/FuckYou/blob/main/LICENSE)
