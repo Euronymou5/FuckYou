@@ -83,13 +83,13 @@ def creds():
                       |                                                |
                       | [~] Fuck You hecho por:                        |
                       |                                                |
-                      |   [$] GoldenDark                               |
+                      |   [$] Spyk3r                                   |
                       |   Discord:                                     |
-                      |   -G O L D E N-#5767                           |
+                      |   ! Spyk3r#0614                                |
                       |   Twitter:                                     |
                       |   https://twitter.com/324Goldendark            |
                       |   Github:                                      |
-                      |   https://github.com/G0ldenD4rk                |
+                      |   https://github.com/Spyk3r                    |
                       |                                                |
                       |   [$] Euronymou5                               |
                       |   Discord:                                     |
