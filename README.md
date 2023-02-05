@@ -3,6 +3,8 @@
 
 **~FuckYou es una herramienta multifunciones programada en Python, creada por GoldenDark y Euronymou5**
 
+-------------
+
 # Instalación
 
 ## Linux (Debian) / Termux
@@ -29,6 +31,7 @@ bash install.sh
 python3 fuckyou.py
 ```
 
+--------------
 # Instalación En Windows
 
 **Primero que todo, debemos estar en el apartado principal del repositorio para despues ubicarnos en el boton Code, lo presionaremos y elegiremos la opción "Download ZIP"**
