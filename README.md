@@ -55,7 +55,11 @@ python3 fuckyou.py
 
 <img src="https://media.discordapp.net/attachments/995599976463859713/1071723648848777236/image.png?width=443&height=348">
 
-**Aqui nos aseguraremos que este marcada la casilla con el nombre "Git from the command line and also from 3rd-party software" y despues seguiremos pulsando next hasta que nos aparezca el boton install**
+**Aqui nos aseguraremos que este marcada la casilla con el nombre "Git from the command line and also from 3rd-party software" y despues seguiremos pulsando next hasta que nos aparezca el boton "install":**
+
+<img src="https://media.discordapp.net/attachments/995599976463859713/1071725028695097415/image.png?width=445&height=348">
+
+**Y despues esperamos a que termine de instalar.**
 
 *Tutorial de como instalar git: https://www.youtube.com/watch?v=cYLapo1FFmA*
 
