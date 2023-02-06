@@ -1,7 +1,7 @@
 # FuckYou 🖕
 **FuckYou** **BETA v1.0.0**
 
-**~FuckYou es una herramienta multifunciones programada en Python, creada por Spyk3r y Euronymou5**
+**~ FuckYou es una herramienta multifunciones programada en Python, creada por Spyk3r y Euronymou5**
 
 -------------
 
