@@ -82,7 +82,7 @@ python -m pip install -r requirements.txt
 ![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/fuckyoupy.PNG)
 
 # Y LISTO, ESO SERIA TODO!
-![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/cmd.PNG)
+![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/image.png)
 
 
 # LICENCIA
