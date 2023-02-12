@@ -82,14 +82,14 @@ python -m pip install -r requirements.txt
 ![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/fuckyoupy.PNG)
 
 # Y LISTO, ESO SERIA TODO!
-![image.png](https://github.com/Euronymou5/FuckYou/blob/main/images/image.png)
+<img src="https://media.discordapp.net/attachments/995599976463859713/1074434907901800508/image.png?width=758&height=431">
 
 
 # Imagenes
 
 | Menu principal | Tools Installer |
 | -------------- | ----------------|
-|![Index](https://github.com/Euronymou5/FuckYou/blob/main/images/image.png)|![f](https://media.discordapp.net/attachments/995599976463859713/1074257408270016512/image.png?width=707&height=389)
+|![Index](https://media.discordapp.net/attachments/995599976463859713/1074434907901800508/image.png?width=758&height=431)|![f](https://media.discordapp.net/attachments/995599976463859713/1074257408270016512/image.png?width=707&height=389)
 
 
 | Creditos | Nmap scanner |
