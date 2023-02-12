@@ -94,7 +94,7 @@ python -m pip install -r requirements.txt
 
 | Creditos | Nmap scanner |
 | -------------- | ----------------|
-|![Index](https://media.discordapp.net/attachments/995599976463859713/1074257031646687232/image.png?width=608&height=389)|![f](![image](https://user-images.githubusercontent.com/85043356/218302797-07701f8a-3e22-442a-917f-77be0881e8e7.png)
+|![Index](https://media.discordapp.net/attachments/995599976463859713/1074257031646687232/image.png?width=608&height=389)|(![image](https://user-images.githubusercontent.com/85043356/218302797-07701f8a-3e22-442a-917f-77be0881e8e7.png)
 
 
 # LICENCIA
