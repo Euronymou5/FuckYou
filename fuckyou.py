@@ -92,7 +92,7 @@ def creds():
                       |   Discord:                                     |
                       |   ! Spyk3r#0614                                |
                       |   Twitter:                                     |
-                      |   https://twitter.com/324Goldendark            |
+                      |   https://twitter.com/_Spyk33r_                |
                       |   Github:                                      |
                       |   https://github.com/Spyk3r                    |
                       |                                                |
