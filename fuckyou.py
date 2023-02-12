@@ -145,7 +145,7 @@ def waspam():
            time.sleep(3)
            waspam()
         else:
-            print('\n[~] El mensaje se enviara en 5 segundos...')
+            print('\n[~] El mensaje se enviara en 5 segundos, recuerda entrar al chat que quieres nukear...')
             time.sleep(5)
             for _ in range(cantidad):
                 print('\n[~] Enviando mensaje...')
