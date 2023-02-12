@@ -89,7 +89,7 @@ python -m pip install -r requirements.txt
 
 | Menu principal | Tools Installer |
 | -------------- | ----------------|
-|![Index](https://github.com/Euronymou5/FuckYou/blob/main/images/image.png)|![f](https://media.discordapp.net/attachments/995599976463859713/1074256688103833620/image.png?width=638&height=270)
+|![Index](https://github.com/Euronymou5/FuckYou/blob/main/images/image.png)|![f](https://media.discordapp.net/attachments/995599976463859713/1074257408270016512/image.png?width=707&height=389)
 # LICENCIA
 
 **[MPL-2.0 license](https://github.com/Euronymou5/FuckYou/blob/main/LICENSE)**
