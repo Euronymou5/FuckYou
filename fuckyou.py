@@ -9,7 +9,7 @@ import pyautogui
 import webbrowser
 from core import doxxing, goldenphish, ser, scanner
 
-Version = "1.0.0"
+local_version = "1.0.0"
 
 def clear():
     if os.name == "nt":
@@ -393,12 +393,13 @@ def menu():
         version = requests.get('ey.txt')
         if version.status_code == 200:
             c = version.text
-            if c == Version:
+            ola = c.strip()
+            if local_version == ola:
                 print(f'\n{Fore.GREEN}[~] No hay versiones disponibles.')
                 m = input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
                 menu()
             else:
-                print(f'\n{Fore.GREEN}[~] Una nueva version hay disponible: {c}')
+                print(f'\n{Fore.GREEN}[~] Una nueva version hay disponible: {ola}')
                 m = input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
                 menu()
     elif prompt == "99":
