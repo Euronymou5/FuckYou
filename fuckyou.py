@@ -390,7 +390,7 @@ def menu():
     elif prompt == "00":
         creds()
     elif prompt == "98":
-        version = requests.get('ey.txt')
+        version = requests.get('https://github.com/Euronymou5/FuckYou/raw/main/version.txt')
         if version.status_code == 200:
             c = version.text
             ola = c.strip()
