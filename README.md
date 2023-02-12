@@ -87,10 +87,9 @@ python -m pip install -r requirements.txt
 
 # Imagenes
 
-| Menu principal | Tools Installer |	    |   Creditos |
-| -------------- | ---------------------- | ---------------------- |
-|![Index](https://github.com/Euronymou5/FuckYou/blob/main/images/image.png)|![f](https://media.discordapp.net/attachments/995599976463859713/1074256688103833620/image.png?width=638&height=270)|![f](https://media.discordapp.net/attachments/995599976463859713/1074257031646687232/image.png?width=608&height=389)
-
+| Menu principal | Tools Installer |
+| -------------- | ----------------|
+|![Index](https://github.com/Euronymou5/FuckYou/blob/main/images/image.png)|![f](https://media.discordapp.net/attachments/995599976463859713/1074256688103833620/image.png?width=638&height=270)
 # LICENCIA
 
 **[MPL-2.0 license](https://github.com/Euronymou5/FuckYou/blob/main/LICENSE)**
