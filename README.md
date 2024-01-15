@@ -1,5 +1,5 @@
 # FuckYou 🖕
-**FuckYou** **BETA v1.0.0**
+**FuckYou** **BETA v1.0.1**
 
 **~FuckYou es una herramienta multifunciones programada en Python, creada por Spyk3r y Euronymou5**
 
